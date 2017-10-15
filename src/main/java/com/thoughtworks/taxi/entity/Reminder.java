@@ -15,10 +15,11 @@ import java.util.List;
  * WriteOff: 指需要报废的车辆
  * 注意：此外，还需要注意一种状态：已经报废
  */
-public class Reminder{
+public class Reminder {
     private List<Car> timeRelated;
     private List<Car> distanceRelated;
     private List<Car> writeOff;
+
     public Reminder() {
         timeRelated = new ArrayList<>();
         distanceRelated = new ArrayList<>();
@@ -64,7 +65,7 @@ public class Reminder{
     /**
      * 格式化输出函数
      */
-    public void printReminder(){
+    public void printReminder() {
         println("Reminder");
         println("==================");
 
@@ -80,34 +81,37 @@ public class Reminder{
 
     /**
      * 包装System.out.println函数
+     *
      * @param object
      */
-    private void println(Object object){
+    private void println(Object object) {
         System.out.println(object);
     }
 
     /**
      * 包装System.out.print函数
+     *
      * @param object
      */
-    private void print(Object object){
+    private void print(Object object) {
         System.out.print(object);
     }
 
     /**
      * 打印一个汽车列表
+     *
      * @param carList
      */
-    private void printList(List<Car> carList){
+    private void printList(List<Car> carList) {
         HashMap<String, List<Car>> map = BrandUtil.countBrand(carList);
-        for(int k=0; k < carList.size(); k++){
+        for (int k = 0; k < carList.size(); k++) {
             Car car = carList.get(k);
             print(car.getBrand() + ": " + map.get(car.getBrand()).size() + " (");
             List<Car> sameBrandCarList = map.get(car.getBrand());
             int length = sameBrandCarList.size();
-            for(int i=0; i < length; i++){
+            for (int i = 0; i < length; i++) {
                 print(sameBrandCarList.get(i).getCarNumber());
-                if(i != length -1)
+                if (i != length - 1)
                     print(", ");
             }
             println(")");
@@ -120,7 +124,7 @@ public class Reminder{
      * 分别对三个列表进行排序
      * 注意：依赖实体类Car中重载的compareTo函数
      */
-    public void sort(){
+    public void sort() {
         Collections.sort(timeRelated);
         Collections.sort(distanceRelated);
         Collections.sort(writeOff);

@@ -1,6 +1,5 @@
 package com.thoughtworks.taxi.core;
 
-
 import com.thoughtworks.taxi.entity.Car;
 import com.thoughtworks.taxi.entity.Reminder;
 
@@ -105,7 +104,6 @@ public class Calculate {
             fixSplit = 3;
         else if (splitYears >= 3)
             fixSplit = 6;
-
         //计算两个日期之间相差的月份，由于题目要求忽略掉日期，所以不能使用car.getSubmitDate.getTime()来计算
         //注意最后要 + 1
         int monthSplit = (car.getSubmitDate().getYear() - car.getBoughtDate().getYear()) * 12

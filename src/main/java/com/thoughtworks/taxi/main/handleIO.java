@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public class handleIO {
-    public static void main(String args[]){
+    public static void main(String args[]) {
         String fileName = ConstantString.INPUT_FILE_NAME;
         try {
             //获取输入
@@ -22,7 +22,7 @@ public class handleIO {
             Reminder reminder = calculate.calculateCarInfo(listInfo);
             //输出
             reminder.printReminder();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

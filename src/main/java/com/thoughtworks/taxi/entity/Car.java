@@ -6,7 +6,7 @@ import java.util.Date;
  * 汽车实体类
  * 记录每辆车的信息，包括车牌号、购买日期、品牌信息、里程数、是否大修过以及提交日期
  */
-public class Car  implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private String carNumber;
     private Date submitDate;
     private Date boughtDate;
@@ -14,8 +14,10 @@ public class Car  implements Comparable<Car>{
     private int kilos;
     private boolean fixed;
 
-    public Car(){ }
-    public Car(String carNumber, Date submitDate, Date boughtDate, String brand, int kilos, boolean fixed){
+    public Car() {
+    }
+
+    public Car(String carNumber, Date submitDate, Date boughtDate, String brand, int kilos, boolean fixed) {
         this.carNumber = carNumber;
         this.submitDate = submitDate;
         this.boughtDate = boughtDate;
@@ -23,6 +25,7 @@ public class Car  implements Comparable<Car>{
         this.kilos = kilos;
         this.fixed = fixed;
     }
+
     public String getCarNumber() {
         return carNumber;
     }
@@ -75,7 +78,7 @@ public class Car  implements Comparable<Car>{
         if (o instanceof Car) {
             if (carNumber.equals(((Car) o).getCarNumber()) && submitDate.equals(((Car) o).getSubmitDate())
                     && boughtDate.equals(((Car) o).getBoughtDate()) && brand.equals(((Car) o).getBrand())
-                    && kilos == ((Car) o).getKilos() && fixed == ((Car) o).isFixed()){
+                    && kilos == ((Car) o).getKilos() && fixed == ((Car) o).isFixed()) {
                 return true;
             }
         }
@@ -85,6 +88,7 @@ public class Car  implements Comparable<Car>{
     /**
      * 重构compareTo函数
      * 根据汽车品牌首字母进行排序
+     *
      * @param car 汽车对象
      * @return
      */

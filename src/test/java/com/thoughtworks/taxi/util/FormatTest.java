@@ -13,14 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FormatTest{
+public class FormatTest {
     @Before
-    public void setUp(){
+    public void setUp() {
         System.out.println("Begin Test Format");
         System.out.println("=====================");
     }
+
     @After
-    public void finish(){
+    public void tearDown() {
         System.out.println("=====================");
         System.out.println("Finish");
     }

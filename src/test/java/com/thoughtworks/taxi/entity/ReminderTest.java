@@ -15,10 +15,11 @@ public class ReminderTest {
     private static ByteArrayOutputStream output = null;
     private static SimpleDateFormat sdf = null;
     private static Reminder reminder = null;
+
     @Before
     public void setUp() throws Exception {
-         sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
-         reminder = new Reminder();
+        sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
+        reminder = new Reminder();
         //重定向输出到bytes
         System.out.println("Begin Test Reminder");
         System.out.println("=====================");
@@ -26,8 +27,9 @@ public class ReminderTest {
         console = System.out;
         System.setOut(new PrintStream(output));
     }
+
     @After
-    public void reset() throws Exception{
+    public void tearDown() throws Exception {
         System.setOut(console);
         System.out.println("=====================");
         System.out.println("Finish Test Reminder");
@@ -113,7 +115,6 @@ public class ReminderTest {
         reminder.setWriteOff(car);
         reminder.printReminder();
         Assert.assertEquals(expected, output.toString());
-
     }
 
     @Test
@@ -158,5 +159,4 @@ public class ReminderTest {
         Assert.assertEquals(sortedReminder.getTimeRelated(), reminder.getTimeRelated());
         Assert.assertEquals(sortedReminder.getWriteOff(), reminder.getWriteOff());
     }
-
 }
