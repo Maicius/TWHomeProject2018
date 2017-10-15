@@ -11,11 +11,14 @@ import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 
 public class ReminderTest {
-    PrintStream console = null;
-    ByteArrayOutputStream output = null;
-
+    private static PrintStream console = null;
+    private static ByteArrayOutputStream output = null;
+    private static SimpleDateFormat sdf = null;
+    private static Reminder reminder = null;
     @Before
     public void setUp() throws Exception {
+         sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
+         reminder = new Reminder();
         //重定向输出到bytes
         System.out.println("Begin Test Reminder");
         System.out.println("=====================");
@@ -32,8 +35,6 @@ public class ReminderTest {
 
     @Test
     public void setTimeRelated() throws Exception {
-        Reminder reminder = new Reminder();
-        SimpleDateFormat sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
         Car car = new Car("CAR0006", sdf.parse("2030/09/01"), sdf.parse("2029/07/01"), "Audi", 100001, true);
         reminder.setTimeRelated(car);
         Assert.assertEquals(1, reminder.getTimeRelated().size());
@@ -42,8 +43,6 @@ public class ReminderTest {
 
     @Test
     public void setDistanceRelated() throws Exception {
-        Reminder reminder = new Reminder();
-        SimpleDateFormat sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
         Car car = new Car("CAR0006", sdf.parse("2030/09/01"), sdf.parse("2029/07/01"), "Audi", 100001, true);
         reminder.setDistanceRelated(car);
         Assert.assertEquals(1, reminder.getDistanceRelated().size());
@@ -52,8 +51,6 @@ public class ReminderTest {
 
     @Test
     public void setWriteOff() throws Exception {
-        Reminder reminder = new Reminder();
-        SimpleDateFormat sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
         Car car = new Car("CAR0006", sdf.parse("2030/09/01"), sdf.parse("2029/07/01"), "Audi", 100001, true);
         reminder.setWriteOff(car);
         Assert.assertEquals(1, reminder.getWriteOff().size());
@@ -62,7 +59,6 @@ public class ReminderTest {
 
     @Test
     public void printReminder1() throws Exception {
-        Reminder reminder = new Reminder();
         String expected = "Reminder\n" +
                 "==================\n" +
                 "* Time-related maintenance coming soon...\n" +
@@ -75,7 +71,7 @@ public class ReminderTest {
                 "* Write-off coming soon...\n" +
                 "BYD: 1 (CAR0004)\n" +
                 "Ford: 1 (CAR0009)\n";
-        SimpleDateFormat sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
+
         Car car = new Car("CAR0006", sdf.parse("2030/09/01"), sdf.parse("2029/07/01"), "Audi", 100001, true);
         reminder.setTimeRelated(car);
         car = new Car("CAR0002", sdf.parse("2030/09/01"), sdf.parse("2029/07/01"), "Porsche", 100001, true);
@@ -96,7 +92,6 @@ public class ReminderTest {
 
     @Test
     public void printReminder2() throws Exception {
-        Reminder reminder = new Reminder();
         String expected = "Reminder\n" +
                 "==================\n" +
                 "* Time-related maintenance coming soon...\n" +
@@ -106,7 +101,6 @@ public class ReminderTest {
                 "* Write-off coming soon...\n" +
                 "BMW: 1 (CAR0002)\n" +
                 "Honda: 1 (CAR0004)\n";
-        SimpleDateFormat sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
         Car car = new Car("CAR0006", sdf.parse("2030/09/01"), sdf.parse("2029/07/01"), "Jeep", 100001, true);
         reminder.setTimeRelated(car);
         car = new Car("CAR0007", sdf.parse("2030/09/01"), sdf.parse("2029/07/01"), "Jeep", 100001, true);
@@ -124,8 +118,6 @@ public class ReminderTest {
 
     @Test
     public void sort() throws Exception {
-        Reminder reminder = new Reminder();
-        SimpleDateFormat sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
         Car car = new Car("CAR0001", sdf.parse("2030/09/01"), sdf.parse("2029/07/01"), "Ford", 100001, true);
         reminder.setTimeRelated(car);
         reminder.setDistanceRelated(car);

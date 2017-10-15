@@ -10,9 +10,26 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- *
+ *格式化输入
+ * 读取输入并将字符型的输入转化为List<Car>类型
  */
 public class FormatInput {
+    public static String readInput(String fileName) {
+        try {
+            System.setIn(new FileInputStream(fileName));
+            Scanner sc = new Scanner(System.in);
+            StringBuilder input = new StringBuilder();
+            while (sc.hasNext()) {
+                input.append(sc.nextLine()).append(ConstantString.SPLIT_WORD);
+            }
+            return input.toString();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.err.println(ConstantString.FILE_NOT_FOUND_ERROR + fileName);
+            return null;
+        }
+    }
+
     public static List<Car> formatInput(String submitInfos){
         return getCarInfos(submitInfos);
     }
@@ -69,21 +86,5 @@ public class FormatInput {
 
     private static boolean getTorF(String tf){
         return tf.equals("T");
-    }
-
-    public static String readInput(String fileName) {
-        try {
-            System.setIn(new FileInputStream(fileName));
-            Scanner sc = new Scanner(System.in);
-            StringBuilder input = new StringBuilder();
-            while (sc.hasNext()) {
-                input.append(sc.nextLine()).append(ConstantString.SPLIT_WORD);
-            }
-            return input.toString();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.err.println(ConstantString.FILE_NOT_FOUND_ERROR + fileName);
-            return null;
-        }
     }
 }
