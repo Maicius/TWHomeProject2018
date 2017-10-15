@@ -1,6 +1,6 @@
 package com.thoughtworks.taxi.util;
 
-import com.thoughtworks.taxi.Constant.ConstantString;
+import com.thoughtworks.taxi.Constant.ConstantProperties;
 import com.thoughtworks.taxi.entity.Car;
 import org.junit.After;
 import org.junit.Assert;
@@ -33,7 +33,7 @@ public class FormatTest {
                 "CAR0001|2025/04/05|Porsche|10000|F==" +
                 "CAR0002|2029/10/14|Porsche|9000|F==";
 
-        SimpleDateFormat sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
+        SimpleDateFormat sdf = new SimpleDateFormat(ConstantProperties.SIMPLE_DATE_FORMAT);
         List<Car> carList = new ArrayList<>();
         Car car = new Car("CAR0001", sdf.parse("2030/09/01"), sdf.parse("2025/04/05"), "Porsche", 10000, false);
         carList.add(car);

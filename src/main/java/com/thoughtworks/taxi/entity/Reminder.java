@@ -68,13 +68,13 @@ public class Reminder {
     public void printReminder() {
         println("Reminder");
         println("==================");
-
+        println("");
         println("* Time-related maintenance coming soon...");
         printList(timeRelated);
-
+        println("");
         println("* Distance-related maintenance coming soon...");
         printList(distanceRelated);
-
+        println("");
         println("* Write-off coming soon...");
         printList(writeOff);
     }

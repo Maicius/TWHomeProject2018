@@ -16,5 +16,4 @@ public class BrandUtilTest {
     @Test
     public void countBrand() throws Exception {
     }
-
 }

@@ -1,6 +1,6 @@
 package com.thoughtworks.taxi.main;
 
-import com.thoughtworks.taxi.Constant.ConstantString;
+import com.thoughtworks.taxi.Constant.ConstantProperties;
 import com.thoughtworks.taxi.core.Calculate;
 import com.thoughtworks.taxi.entity.Car;
 import com.thoughtworks.taxi.entity.Reminder;
@@ -8,10 +8,12 @@ import com.thoughtworks.taxi.util.FormatInput;
 
 import java.util.List;
 
-
+/**
+ * 程序入口
+ */
 public class handleIO {
     public static void main(String args[]) {
-        String fileName = ConstantString.INPUT_FILE_NAME;
+        String fileName = ConstantProperties.INPUT_FILE_NAME;
         try {
             //获取输入
             String input = FormatInput.readInput(fileName);

@@ -1,6 +1,6 @@
 package com.thoughtworks.taxi.core;
 
-import com.thoughtworks.taxi.Constant.ConstantString;
+import com.thoughtworks.taxi.Constant.ConstantProperties;
 import com.thoughtworks.taxi.entity.Car;
 import com.thoughtworks.taxi.entity.Reminder;
 import org.junit.Assert;
@@ -21,13 +21,14 @@ public class CalculateTest {
 
     @Before
     public void setUp() {
-        sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
+        sdf = new SimpleDateFormat(ConstantProperties.SIMPLE_DATE_FORMAT);
         calculateClass = Calculate.class;
         calculate = new Calculate();
     }
 
     /**
      * 主测试
+     *
      * @throws Exception
      */
     @Test
@@ -77,6 +78,7 @@ public class CalculateTest {
 
     /**
      * 测试无报废信息的车辆
+     *
      * @throws Exception
      */
     @Test
@@ -90,6 +92,7 @@ public class CalculateTest {
 
     /**
      * 测试快要报废的车辆
+     *
      * @throws Exception
      */
     @Test
@@ -103,6 +106,7 @@ public class CalculateTest {
 
     /**
      * 测试已经报废的车辆
+     *
      * @throws Exception
      */
     @Test

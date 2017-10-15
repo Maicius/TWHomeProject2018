@@ -1,6 +1,6 @@
 package com.thoughtworks.taxi.entity;
 
-import com.thoughtworks.taxi.Constant.ConstantString;
+import com.thoughtworks.taxi.Constant.ConstantProperties;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,7 +18,7 @@ public class ReminderTest {
 
     @Before
     public void setUp() throws Exception {
-        sdf = new SimpleDateFormat(ConstantString.SIMPLE_DATE_FORMAT);
+        sdf = new SimpleDateFormat(ConstantProperties.SIMPLE_DATE_FORMAT);
         reminder = new Reminder();
         //重定向输出到bytes
         System.out.println("Begin Test Reminder");
@@ -62,14 +62,14 @@ public class ReminderTest {
     @Test
     public void printReminder1() throws Exception {
         String expected = "Reminder\n" +
-                "==================\n" +
+                "==================\n\n" +
                 "* Time-related maintenance coming soon...\n" +
                 "Audi: 1 (CAR0006)\n" +
-                "Porsche: 1 (CAR0002)\n" +
+                "Porsche: 1 (CAR0002)\n\n" +
                 "* Distance-related maintenance coming soon...\n" +
                 "BYD: 1 (CAR0005)\n" +
                 "Ford: 1 (CAR0007)\n" +
-                "Porsche: 1 (CAR0001)\n" +
+                "Porsche: 1 (CAR0001)\n\n" +
                 "* Write-off coming soon...\n" +
                 "BYD: 1 (CAR0004)\n" +
                 "Ford: 1 (CAR0009)\n";
@@ -95,11 +95,11 @@ public class ReminderTest {
     @Test
     public void printReminder2() throws Exception {
         String expected = "Reminder\n" +
-                "==================\n" +
+                "==================\n\n" +
                 "* Time-related maintenance coming soon...\n" +
-                "Jeep: 2 (CAR0006, CAR0007)\n" +
+                "Jeep: 2 (CAR0006, CAR0007)\n\n" +
                 "* Distance-related maintenance coming soon...\n" +
-                "Peugeot: 1 (CAR0005)\n" +
+                "Peugeot: 1 (CAR0005)\n\n" +
                 "* Write-off coming soon...\n" +
                 "BMW: 1 (CAR0002)\n" +
                 "Honda: 1 (CAR0004)\n";
