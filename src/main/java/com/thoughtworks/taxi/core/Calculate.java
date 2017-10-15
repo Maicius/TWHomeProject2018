@@ -6,6 +6,9 @@ import com.thoughtworks.taxi.entity.Reminder;
 
 import java.util.List;
 
+/**
+ * 核心计算类
+ */
 public class Calculate {
 
     private Reminder reminder = null;
@@ -108,7 +111,7 @@ public class Calculate {
         int monthSplit = (car.getSubmitDate().getYear() - car.getBoughtDate().getYear()) * 12
                 + (car.getSubmitDate().getMonth() - car.getBoughtDate().getMonth()) + 1;
 
-
+        //计算公式： 总月数 % 保修周期, 余数则是下一个保修周期到来的剩下的月数
         return ((monthSplit % fixSplit) <= 1);
     }
 }

@@ -61,31 +61,43 @@ public class Reminder{
         this.writeOff.add(car);
     }
 
-    //格式化输出
+    /**
+     * 格式化输出函数
+     */
     public void printReminder(){
         println("Reminder");
         println("==================");
-        println("");
-        println("");
+
         println("* Time-related maintenance coming soon...");
         printList(timeRelated);
-        println("");
-        println("");
+
         println("* Distance-related maintenance coming soon...");
         printList(distanceRelated);
-        println("");
-        println("");
+
         println("* Write-off coming soon...");
         printList(writeOff);
     }
 
+    /**
+     * 包装System.out.println函数
+     * @param object
+     */
     private void println(Object object){
         System.out.println(object);
     }
+
+    /**
+     * 包装System.out.print函数
+     * @param object
+     */
     private void print(Object object){
         System.out.print(object);
     }
 
+    /**
+     * 打印一个汽车列表
+     * @param carList
+     */
     private void printList(List<Car> carList){
         HashMap<String, List<Car>> map = BrandUtil.countBrand(carList);
         for(int k=0; k < carList.size(); k++){
@@ -96,13 +108,18 @@ public class Reminder{
             for(int i=0; i < length; i++){
                 print(sameBrandCarList.get(i).getCarNumber());
                 if(i != length -1)
-                    print(",");
+                    print(", ");
             }
             println(")");
             k += length - 1;
         }
     }
 
+    /**
+     * 排序函数
+     * 分别对三个列表进行排序
+     * 注意：依赖实体类Car中重载的compareTo函数
+     */
     public void sort(){
         Collections.sort(timeRelated);
         Collections.sort(distanceRelated);

@@ -16,7 +16,7 @@ import java.util.List;
 public class FormatTest{
     @Before
     public void setUp(){
-        System.out.println("Begin Test");
+        System.out.println("Begin Test Format");
         System.out.println("=====================");
     }
     @After

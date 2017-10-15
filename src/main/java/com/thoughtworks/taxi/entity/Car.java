@@ -2,6 +2,10 @@ package com.thoughtworks.taxi.entity;
 
 import java.util.Date;
 
+/**
+ * 汽车实体类
+ * 记录每辆车的信息，包括车牌号、购买日期、品牌信息、里程数、是否大修过以及提交日期
+ */
 public class Car  implements Comparable<Car>{
     private String carNumber;
     private Date submitDate;
@@ -78,8 +82,14 @@ public class Car  implements Comparable<Car>{
         return false;
     }
 
+    /**
+     * 重构compareTo函数
+     * 根据汽车品牌首字母进行排序
+     * @param car 汽车对象
+     * @return
+     */
     @Override
-    public int compareTo(Car o) {
-        return this.brand.compareTo(o.brand);
+    public int compareTo(Car car) {
+        return this.brand.compareTo(car.brand);
     }
 }
