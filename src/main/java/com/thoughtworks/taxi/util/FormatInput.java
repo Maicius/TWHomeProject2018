@@ -85,6 +85,19 @@ public class FormatInput {
     }
 
     private static boolean getTorF(String tf) {
-        return tf.equals("T");
+        switch (tf) {
+            case "T":
+                return true;
+            case "F":
+                return false;
+            default:
+                try {
+                    throw new ParseException(tf, 0);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+        return false;
     }
 }

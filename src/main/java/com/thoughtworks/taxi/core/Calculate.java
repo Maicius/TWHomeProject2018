@@ -67,12 +67,14 @@ public class Calculate {
             writeOffYears = 3;
         final int boughtDays = (int) ((car.getSubmitDate().getTime() - car.getBoughtDate().getTime()) / dayTime);
         final int writeOffDays = year * writeOffYears;
+        final int maxMonthDays = 62;
+        final int nearToFixMonthNum = 2;
         //计算已经报废的车辆
         if (boughtDays >= writeOffDays)
             return WriteOffState.Already;
             //提前一个月（不计算日期）开始提醒要报废的车辆
             //62是一年中两个月累加最可能多的天数（7月 + 8月）
-        else if (boughtDays >= writeOffDays - 62 && Math.abs(car.getBoughtDate().getMonth() - car.getSubmitDate().getMonth()) <= 2)
+        else if (boughtDays >= writeOffDays - maxMonthDays && Math.abs(car.getBoughtDate().getMonth() - car.getSubmitDate().getMonth()) <= nearToFixMonthNum)
             return WriteOffState.Nearly;
         else
             return WriteOffState.New;

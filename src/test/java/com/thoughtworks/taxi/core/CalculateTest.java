@@ -14,6 +14,9 @@ import java.util.List;
 
 import static com.thoughtworks.taxi.core.Calculate.WriteOffState.*;
 
+/**
+ * 核心计算类 Caculate的测试类
+ */
 public class CalculateTest {
     private static SimpleDateFormat sdf = null;
     private static Calculate calculate = null;

@@ -21,8 +21,7 @@ public class ReminderTest {
         sdf = new SimpleDateFormat(ConstantProperties.SIMPLE_DATE_FORMAT);
         reminder = new Reminder();
         //重定向输出到bytes
-        System.out.println("Begin Test Reminder");
-        System.out.println("=====================");
+        //获取控制台输出内容
         output = new ByteArrayOutputStream();
         console = System.out;
         System.setOut(new PrintStream(output));
@@ -31,8 +30,6 @@ public class ReminderTest {
     @After
     public void tearDown() throws Exception {
         System.setOut(console);
-        System.out.println("=====================");
-        System.out.println("Finish Test Reminder");
     }
 
     @Test

@@ -9,5 +9,5 @@ public interface ConstantProperties {
     String SPLIT_CAR_INFO = "|";
     String SPLIT_SUBMIT_DATE = ":";
     String SIMPLE_DATE_FORMAT = "yyyy/MM/dd";
-    String INPUT_FILE_NAME = "/Users/maicius/code/TWHomeProject/src/main/java/com/thoughtworks/taxi/main/testCase2";
+    String INPUT_FILE_NAME = "testCase1.txt";
 }

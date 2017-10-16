@@ -13,7 +13,13 @@ import java.util.List;
  */
 public class handleIO {
     public static void main(String args[]) {
-        String fileName = ConstantProperties.INPUT_FILE_NAME;
+        String fileName;
+        //根据控制台的输入选择读取的文件
+        //若控制台输入为空，则读取默认文件:testCase1.txt
+        if(args.length == 0)
+            fileName = ConstantProperties.INPUT_FILE_NAME;
+        else
+            fileName = args[0];
         try {
             //获取输入
             String input = FormatInput.readInput(fileName);
