@@ -3,6 +3,8 @@ package com.thoughtworks.taxi.core;
 import com.thoughtworks.taxi.entity.Car;
 import com.thoughtworks.taxi.entity.Reminder;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -67,14 +69,22 @@ public class Calculate {
             writeOffYears = 3;
         final int boughtDays = (int) ((car.getSubmitDate().getTime() - car.getBoughtDate().getTime()) / dayTime);
         final int writeOffDays = year * writeOffYears;
+        Calendar rightNow = Calendar.getInstance();
+        rightNow.setTime(car.getBoughtDate());
+        //计算报废的日期
+        rightNow.add(Calendar.DAY_OF_YEAR,writeOffDays);
+        Date writeOffDate = rightNow.getTime();
+
         final int maxMonthDays = 62;
-        final int nearToFixMonthNum = 2;
+        final int nearToFixMonthNum = 1;
+        int monthSplit = writeOffDate.getMonth() - car.getSubmitDate().getMonth();
         //计算已经报废的车辆
         if (boughtDays >= writeOffDays)
             return WriteOffState.Already;
             //提前一个月（不计算日期）开始提醒要报废的车辆
             //62是一年中两个月累加最可能多的天数（7月 + 8月）
-        else if (boughtDays >= writeOffDays - maxMonthDays && Math.abs(car.getBoughtDate().getMonth() - car.getSubmitDate().getMonth()) <= nearToFixMonthNum)
+
+        else if (boughtDays >= writeOffDays - maxMonthDays && monthSplit <= nearToFixMonthNum && monthSplit >=0)
             return WriteOffState.Nearly;
         else
             return WriteOffState.New;
