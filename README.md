@@ -11,6 +11,7 @@
 > 测试：JUnit 4.12 
 
 ### How to Run
+
 > **注意** 
 > 本项目为方便输入  
 > 使用了System.setIn重定向输入流到文件中  
@@ -32,6 +33,7 @@
 ####1.计算报废车辆信息：
 
 #####算法相关代码：
+
 > com.thoughtworks.taxi.core -- Calculate.class -- isWriteOff(Car car)  
 > test：com.thoughtworks.taxi.core -- CalculateTest.class  
 		
@@ -39,7 +41,6 @@
 
 #####算法步骤：
   
-
 > 1. 计算计算车辆是否经过大修，从而调整报废年限 —— writeOffYears
 > 2. 计算车辆购买日期至提交日期的天数——boughtDays
 > 3. 计算车辆报废日期 —— writeOffDate
@@ -75,7 +76,9 @@
 > 不满足条件的汽车返回 false,进入按时间提醒保修的计算
 
 ####3. 计算需要定期保养的车辆
+
 ##### 算法相关代码：
+
 > com.thoughtworks.taxi.core -- Calculate.class -- isTimeRelated(Car car)  
 > test: com.thoughtworks.taxi.core -- CalculateTest.class
 
