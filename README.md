@@ -1,13 +1,13 @@
-#ThoughtWorks 2018校园招聘作业题目——出租车
+# ThoughtWorks 2018校园招聘作业题目——出租车
 
 
-###作业情况简介：
+### 作业情况简介：
 
 > Java 版本：JDK 1.8  
 > IDE: IntelliJ IDEA  
 > 操作系统： Mac OS Sierra  
 > 依赖管理：Maven  
-> 版本控制：Git (使用的私人git服务器，未公开)   
+> 版本控制：Git
 > 测试：JUnit 4.12 
 
 ### How to Run
@@ -30,16 +30,16 @@
 
 ### 核心算法介绍
 
-####1.计算报废车辆信息：
+#### 1.计算报废车辆信息：
 
-#####算法相关代码：
+##### 算法相关代码：
 
 > com.thoughtworks.taxi.core -- Calculate.class -- isWriteOff(Car car)  
 > test：com.thoughtworks.taxi.core -- CalculateTest.class  
 		
 		testWriteOff(); testWriteOff2();testWriteOff2()
 
-#####算法步骤：
+##### 算法步骤：
   
 > 1. 计算计算车辆是否经过大修，从而调整报废年限 —— writeOffYears
 > 2. 计算车辆购买日期至提交日期的天数——boughtDays
@@ -53,16 +53,16 @@
 >    即 同时满足 **报废日期距离提交日期还剩一个月内** 和 **月份的数字相差不超过 1**，极限情况为 8月31日和 7月1日，此时相差 62天，但依然该提醒
 > 6. 不满足上述条件的车辆标记为New,进入按里程数提醒保修的计算
 
-####2. 计算需要提醒每一万公里保养的车辆
+#### 2. 计算需要提醒每一万公里保养的车辆
 
-#####算法相关代码：
+##### 算法相关代码：
 
 > com.thoughtworks.taxi.core -- Calculate.class -- isDistanceRelated(Car car）   
 > test：com.thoughtworks.taxi.core -- CalculateTest.class
  
     testIsDistanceRelated()；testIsDistanceRelated2()  
     
-#####算法步骤：
+##### 算法步骤：
 
 > 在算法1中被标记为New的车辆，进入此次计算
   
@@ -75,7 +75,7 @@
 > 即满足汽车里程数为 10000的整数倍或者对10000取余后，余数在 9500 - 10000之间
 > 不满足条件的汽车返回 false,进入按时间提醒保修的计算
 
-####3. 计算需要定期保养的车辆
+#### 3. 计算需要定期保养的车辆
 
 ##### 算法相关代码：
 
